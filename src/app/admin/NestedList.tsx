@@ -1,12 +1,9 @@
-// NestedList.tsx
 "use client"; // if you're using Next.js with App Router
 
-// import React, {  useState } from "react";
 import { ListItem } from "../types"; // adjust the path as needed
 import { v4 as uuidv4 } from "uuid";
 import { MultiColumnTree } from "../components/MultiColumnTree";
 import { useEffect } from "react";
-import TreeViewPage from "../TreeView";
 
 const NestedList = (subjectList: ListItem[], addSubject: (list: ListItem[]) => void) => {
 

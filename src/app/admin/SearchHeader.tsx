@@ -53,7 +53,7 @@ export default function SearchComponent(
       }
       setSuccess(false);
     }
-  }, [isSuccess]);
+  }, [isSuccess, subjectList]);
 
   return (
     <div className="relative flex flex-col">

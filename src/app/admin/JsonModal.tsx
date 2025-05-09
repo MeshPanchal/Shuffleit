@@ -1,7 +1,5 @@
 "use client";
-import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
-import { json } from "d3";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 
 const initialData = [
   {
@@ -66,7 +64,6 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
 }) => {
   const [jsonText, setJsonText] = useState(JSON.stringify(initialData));
   const [error, setError] = useState("");
-  const [open, setOpen] = useState<boolean>(true);
 
   const handleSave = () => {
     try {
@@ -94,7 +91,7 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
                 <h2 className="text-sm font-semibold pl-2 pt-2  justify-self-center">
                   Upload JSON
                 </h2>
-
+9
                 <textarea
                   value={jsonText}
                   onChange={(e) => setJsonText(e.target.value)}
@@ -112,8 +109,7 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
                 <div className="text-sm flex justify-end space-x-3 px-4 py-2 sm:flex sm:flex-row sm:px-6">
                   <button
                     onClick={() => {
-                      setShowDialog(false);
-                      setOpen(false);
+                      setShowDialog(false); 
                     }}
                     className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md"
                   >
@@ -122,7 +118,6 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
                   <button
                     onClick={() => {
                       handleSave();
-                      setOpen(false);
                     }}
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md"
                   >

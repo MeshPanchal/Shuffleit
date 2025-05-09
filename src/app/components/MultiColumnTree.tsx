@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import {useState } from "react";
 import { ArrowRight, PlusIcon, TrashIcon } from "lucide-react";
 import { ListItem } from "../types";
 
@@ -35,7 +35,7 @@ export const MultiColumnTree = ({
     return items;
   };
 
-  function moveItemToTopById(list: ListItem[], itemId: string): ListItem[] {
+ /* function moveItemToTopById(list: ListItem[], itemId: string): ListItem[] {
     function recursiveMove(list: ListItem[]): ListItem[] {
       let modified = false;
   
@@ -63,7 +63,7 @@ export const MultiColumnTree = ({
     }
 
     return recursiveMove([...list]);
-  }
+  }*/
 
 
   const handleItemClick = (level: number | undefined, id: string) => {
