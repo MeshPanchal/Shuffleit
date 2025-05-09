@@ -1,0 +1,94 @@
+.mainContainer {
+    padding: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: fixed;
+    
+}
+
+.SubjectContainer {
+    padding: 5;
+    display: flex;
+    border-radius: 5;
+    border-color: aliceblue;
+   
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: fit-content;
+}
+
+.subjectItemContainer {
+    margin: 10;
+    padding: 10;
+    border: 1px solid;
+    border-radius: 10;
+}
+
+#subjectItemText{
+    min-width: 50px;
+    width: 233;
+}
+
+#subjectItemText:hover {
+    border-radius: 10;
+    padding-left: 20;
+    text-decoration: solid;
+    cursor: pointer;
+    background-color: rgb(177, 153, 95);
+   
+}
+
+#subjectItemText:visited{
+    border-radius: 10;
+    padding-left: 20;
+    text-decoration: solid;
+    cursor: pointer;
+    background-color: rgb(177, 153, 95);
+}
+
+.chapterContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: fit-content;
+}
+
+#subItem_Add_Button {
+    padding: 5;
+    min-width: 50;
+    font-size: 12px;
+    border: 2px black;
+    border-radius: 10;
+    background-color: blue;
+}
+
+#item_delete_button { 
+    padding: 5;
+    min-width: 50;
+    font-size: 12px;
+    border-radius: 10;
+    background-color: rgb(229, 2, 2);
+}
+
+#subjectTitle {
+    align-items: center;
+    align-self: center;
+    ;
+}
+
+.Header {
+    padding: "20px";
+    display: "flex";
+    align-items: "center";
+    justify-content: "center";
+    flex-direction: "column";
+    container-type: "inherit";
+}
+
+#headerTitle {
+    align-content: center;
+    align-self: center;
+}
