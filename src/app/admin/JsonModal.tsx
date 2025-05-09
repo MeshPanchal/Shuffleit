@@ -83,21 +83,15 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
     }
   };
 
-  useEffect(() => {
-     if(jsonText.trim().length == 0){
-      
-     }
-    
-  },[jsonText]);
 
   return (
     <div>
       {showDialog && (
         <div className="fixed inset-0 bg-gray-600/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in place-content-center">
-          <div className="justify-center  sm:flex sm:flex-col  p-4 text-center sm:items-center sm:p-6">
-            <div className=" justify-center sm:flex sm:flex-row ">
+          <div className="justify-center  sm:flex sm:flex-col text-center sm:items-center sm:p-6">
+            <div className=" justify-center flex sm:flex sm:flex-row">
               <div className="p-4 bg-white rounded-lg sm:p-4 h-fit shadow-lg  ">
-                <h2 className="text-sm font-semibold pl-2 pt-2  justify-self-start">
+                <h2 className="text-sm font-semibold pl-2 pt-2  justify-self-center">
                   Upload JSON
                 </h2>
 

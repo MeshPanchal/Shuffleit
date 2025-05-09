@@ -31,7 +31,7 @@ function AdminHome() {
    };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 flex flex-col">
+    <div className="h-full bg-white text-gray-800 flex flex-col">
       {SearchComponent(subjectList, addSubject , clearData)}
       {NestedList(subjectList, addSubject)}
  
