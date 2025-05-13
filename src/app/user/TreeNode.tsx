@@ -40,7 +40,7 @@ const TreeItem: React.FC<{ item: ListItem }> = ({ item }) => {
       </div>
 
       {hasChildren && expanded && (
-        <div className="pl-6 border-l border-gray-300 ml-2 mt-1">
+        <div className="pl-4 border-l border-gray-300 ml-2 mt-1">
           <TreeNode node={item.subItems} />
         </div>
       )}
