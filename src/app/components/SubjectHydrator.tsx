@@ -22,7 +22,7 @@ export default function SubjectHydrator() {
     } catch (e) {
       console.error("Failed to load localStorage list:", e);
     }
-  }, []);
+  }, [dispatch]);
 
   // Save the subjectList to localStorage whenever it changes
   useEffect(() => {
