@@ -2,24 +2,63 @@
 
 import {useState } from "react";
 import { ArrowRight, PlusIcon, TrashIcon } from "lucide-react";
+import { RootState } from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "../types";
+import { setSubjectList } from "../store/slices/subjectListSlice";
+import { v4 as uuidv4 } from "uuid";
 
-interface MultiColumnTreeProps {
-  data: ListItem[];
-  addSubItem: (id: string, value: string) => void;
-  deleteItem: (id: string) => void;
-}
+export function MultiColumnTree(){
 
-export const MultiColumnTree = ({
-  data,
-  addSubItem,
-  deleteItem,
-}: MultiColumnTreeProps) => {
+  const subjectList = useSelector(
+    (state: RootState) => state.subjectListStore.subjectList
+  );
+  const dispatch = useDispatch();
 
-  // const [list, setList] = useState<ListItem[]>(data);
-  // useEffect(() => {
-  //   setList(data);
-  // }, [data]); 
+  const addSubItem = (parentId: string, text: string) => {
+    const addRecursive = (items: ListItem[]): ListItem[] =>
+      items.map((item) => {
+        if (item.id === parentId) {
+          // item.subItems.push(text)
+          return {
+            ...item,
+            subItems: [...item.subItems, { id: uuidv4(), text, subItems: [] }],
+          };
+        } else {
+          return { ...item, subItems: addRecursive(item.subItems) };
+        }
+      });
+
+    const newList = addRecursive(subjectList ?? []);
+    dispatch(setSubjectList(newList));  // update the redux store
+
+    // subjectList.splice(0, subjectList.length);
+    // subjectList.push(...newList);
+    // addSubject(subjectList);
+  };
+
+
+  const deleteItem = (itemId: string) => {
+    const deleteRecursive = (
+      items: ListItem[],
+      itemIdToDelete: string
+    ): ListItem[] => {
+      return items
+        .filter((item) => item.id !== itemIdToDelete) // Remove the item if it matches
+        .map((item) => ({
+          ...item,
+          subItems: deleteRecursive(item.subItems, itemIdToDelete), // Recursively clean subItems
+        }));
+    };
+
+    const newList = deleteRecursive(subjectList ?? [], itemId);
+    dispatch(setSubjectList(newList));
+    console.log("delete item", newList);
+
+    //  subjectList.splice(0, subjectList.length);
+    //  subjectList.push(...newList);
+    //  addSubject(subjectList);
+  };
 
 
   const [path, setPath] = useState<string[]>([]);
@@ -27,7 +66,7 @@ export const MultiColumnTree = ({
   const levels = [...Array(path.length + 1).keys()];
 
   const getItemsAtLevel = (level: number) => {
-    let items = data;
+    let items = subjectList;
     for (let i = 0; i < level; i++) {
       const selected = path[i];
       items = items.find((item) => item.id === selected)?.subItems || [];
@@ -68,7 +107,6 @@ export const MultiColumnTree = ({
 
   const handleItemClick = (level: number | undefined, id: string) => {
 
-    console.log("handleItemClick", data);
     const newPath = [...path.slice(0, level), id];
     setPath(newPath);
 

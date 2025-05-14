@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSubjectList } from "../store/slices/subjectListSlice";
 
 const initialData = [
   {
@@ -15,6 +17,21 @@ const initialData = [
             text: "Propositional and First-Order Logic",
             subItems: [],
           },
+          {
+            id: "1-1-2",
+            text: "Sets, Relations, and Functions",
+            subItems: [],
+          },
+          {
+            id: "1-1-3",
+            text: "Graph Theory",
+            subItems: [],
+          },
+          {
+            id: "1-1-4",
+            text: "Group Theory",
+            subItems: [],
+          }
         ],
       },
       {
@@ -36,7 +53,7 @@ const initialData = [
   },
   {
     id: "3",
-    text: "Sets, Relations, Functions",
+    text: "Algorithms",
     subItems: [],
   },
   {
@@ -46,7 +63,7 @@ const initialData = [
   },
   {
     id: "5",
-    text: "Partial Orders and Lattices",
+    text: "Operating Systems",
     subItems: [],
   }
 ];
@@ -65,10 +82,16 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
   const [jsonText, setJsonText] = useState(JSON.stringify(initialData));
   const [error, setError] = useState("");
 
+  const dispatch = useDispatch();
+
   const handleSave = () => {
     try {
       const parsed = JSON.parse(jsonText);
-      localStorage.setItem("nestedList", JSON.stringify(parsed));
+
+      // localStorage.setItem("nestedList", JSON.stringify(parsed));
+      //set subject list in redux store and it automatically saves in local storage
+      dispatch(setSubjectList(parsed)) ; 
+
       setJsonText("");
       setError("");
       console.log("JSON saved:", parsed);
@@ -91,7 +114,7 @@ const JsonUploadDialog: React.FC<JsonUploadDialogProps> = ({
                 <h2 className="text-sm font-semibold pl-2 pt-2  justify-self-center">
                   Upload JSON
                 </h2>
-9
+
                 <textarea
                   value={jsonText}
                   onChange={(e) => setJsonText(e.target.value)}

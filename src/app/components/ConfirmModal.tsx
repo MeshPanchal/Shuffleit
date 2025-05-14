@@ -9,17 +9,22 @@ import {
 } from "@headlessui/react";
 
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { setSubjectList } from "../store/slices/subjectListSlice";
+import { useDispatch } from "react-redux";
 
 interface ConfirmDialogProps {
   setConfirmDialog: (value: boolean) => void;
-  clearData: () => void;
 }
 
 export default function ConfirmDialog({
   setConfirmDialog,
-  clearData,
 }: ConfirmDialogProps) {
   const [open, setOpen] = useState<boolean>(true);
+
+  const dispatch = useDispatch();
+  const clearData = () => {
+    dispatch(setSubjectList([]));
+  };
 
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">

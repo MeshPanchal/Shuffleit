@@ -1,31 +1,24 @@
 "use client"; // Only if using App Router
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 import Link from "next/link";
 import {} from "react";
 import { ListItem } from "../types";
 import { TreeNode } from "./TreeNode";
 import { Shuffle } from "lucide-react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store"; 
+
 
 function User() {
-  const [subjects, setSubjects] = useState<ListItem[]>([]);
+
+  const subjects:ListItem[] = useSelector((state: RootState) => state.subjectListStore.subjectList);
+ 
   const [selectedSubjectId, setSelectedSubjectId] = useState<string>("");
 
   const [randomTopics, setRandomTopics] = useState<ListItem[]>([]);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("nestedList");
-    try {
-      const list = JSON.parse(stored ?? "");
-      if (list) {
-        console.log(list);
-        setSubjects(list);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
 
   const selectedSubject: ListItem | undefined = subjects.find(
     (s) => s.id == selectedSubjectId
@@ -100,16 +93,16 @@ function User() {
     <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col">
       {/* Header */}
       <header className="w-full flex items-center justify-between px-6 py-4 bg-white shadow-md">
-        <h1 className=" text-xl font-sans p-1 uppercase inset-ring-amber-50 border-2 rounded-md font-semibold">
-          Get Topic
+        <h1 className=" text-xs font-sans p-1 uppercase inset-ring-amber-50 border-2 rounded-md font-semibold">
+          Gate Topic
         </h1>
+
         <Link
           href="/admin"
           className="border border-gray-400 hover:bg-gray-300 hover:border-gray-300 text-black px-3 py-1 rounded-md"
         >
           <p>Admin</p>
         </Link>
-
       </header>
 
       {/* Subject Selector */}
@@ -123,10 +116,10 @@ function User() {
               setSelectedSubjectId(e.target.value);
               setRandomTopics([]);
             }}
-            className="border text-sm border-gray-300 min-w-100 rounded-md p-1 py-2 shadow-sm"
+            className="w-full min-w-30 max-w-[400] border text-sm border-gray-300 rounded-md p-1 py-2 shadow-sm"
           >
-            <option className="px-2" value="">
-              ---Select Subject---
+            <option className="p-2" value="">
+              --- Select Subject ---
             </option>
             {/* unselected/default option */}
             {subjects.map((subject) => (
@@ -144,21 +137,10 @@ function User() {
           </button>
         </div>
 
-        <div className="flex flex-row mt-4 mb-4 justify-center text-[14px]">
-          {/* Tree View */}
-          {
-            <div className="max-w-xl max-h-fit  bg-white shadow p-6 rounded-b-lg">
-              {/* <TreeNode node={selectedSubject} shuffledTopics={randomTopics} /> */}
-              <FilteredTree
-                fullTree={selectedSubject?.subItems ?? subjects}
-                shuffledTopics={randomTopics}
-              />
-            </div>
-          }
-
+        <div className="flex flex-col sm:flex-row p-6 mt-4 mb-4 gap-4 justify-center text-[14px]">
           {/** show shuffle list here */}
-          <div className="ml-4 p-6 bg-white shadow rounded-b-lg">
-            <p className="text-sm font-bold">Random Topics</p>
+          <div className="p-6 bg-white shadow rounded-xl">
+            <p className="text-sm font-bold">Shuffled Topics</p>
             <ul className="list-decimal list-inside space-y-2 justify-items-start mt-2 ml-1">
               {randomTopics.map((topic) => (
                 <li key={topic.id} className="text-gray-800">
@@ -167,6 +149,17 @@ function User() {
               ))}
             </ul>
           </div>
+
+          {/* Tree View */}
+          {
+            <div className="max-w-xl max-h-fit  bg-white shadow p-6 rounded-xl">
+              {/* <TreeNode node={selectedSubject} shuffledTopics={randomTopics} /> */}
+              <FilteredTree
+                fullTree={selectedSubject?.subItems ?? subjects}
+                shuffledTopics={randomTopics}
+              />
+            </div>
+          }
         </div>
       </main>
     </div>

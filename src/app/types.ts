@@ -12,11 +12,3 @@ export class ListItem {
   }
   
 }
-
-
-
-// interface Props {
-//   subjectList: ListItem[];
-//   setSubjectList: React.Dispatch<React.SetStateAction<ListItem[]>>;
-// }
-
