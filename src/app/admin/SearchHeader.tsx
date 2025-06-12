@@ -25,7 +25,7 @@ export default function SearchComponent(){
     const listItem = {
       id: uuidv4(),
       text: query,
-      children: [],
+      subItems: [],
     };
 
     console.log("new Item id:", listItem.id);
