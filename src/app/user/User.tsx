@@ -93,8 +93,8 @@ function User() {
     <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col">
       {/* Header */}
       <header className="w-full flex items-center justify-between px-6 py-4 bg-white shadow-md">
-        <h1 className=" text-xs font-sans p-1 uppercase inset-ring-amber-50 border-2 rounded-md font-semibold">
-          Gate Topic
+        <h1 className=" text-xs font-sans p-2 uppercase inset-ring-amber-50 border-2 rounded-md font-semibold">
+          Shuffleit
         </h1>
 
         <Link

@@ -19,13 +19,21 @@ export default function SearchComponent(){
   const dispatch = useDispatch();
 
   const handleAddSubject = () => {
+    if (query.trim() === "") return;
 
-    if (query.trim() === "")  return;  
+    // Create a plain serializable object
+    const listItem = {
+      id: uuidv4(),
+      text: query,
+      children: [],
+    };
 
-    const list = subjectList 
-    const listItem = new ListItem(uuidv4(), query, []);
-    list.push(listItem);
-    dispatch(setSubjectList(list)); 
+    console.log("new Item id:", listItem.id);
+    // Shallow copy and add the new item
+    const list = [...subjectList, listItem];
+
+    // Dispatch the new list
+    dispatch(setSubjectList(list));
 
     setQuery("");
   };

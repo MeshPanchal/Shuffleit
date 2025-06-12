@@ -1,3 +1,4 @@
+"use client";
 import { TrashIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,7 +10,7 @@ export default function AdminHeader() {
   return (
     <header className="fixed w-full flex items-center justify-between px-6 py-4 bg-white shadow-md inset-x-0 top-0 h-16 z-50">
       <h1 className=" text-xs font-sans p-2 uppercase inset-ring-amber-50 border-2 rounded-md font-semibold">
-        Gate Topic
+        Shuffleit
       </h1>
 
       <div className="flex flex-row">

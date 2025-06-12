@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gate Topic",
+  title: "Shuffleit",
   description: "Gate topic is a website that provides a platform for users to create and manage topics.",
 };
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />;
+
 
 export default function RootLayout({
   children,

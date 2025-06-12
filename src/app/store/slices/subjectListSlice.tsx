@@ -17,7 +17,8 @@ export const subjectListSlice = createSlice({
     initialState,
     reducers : {
         setSubjectList: (state, action) => {
-            state.subjectList = action.payload;
+            state.subjectList.splice(0, state.subjectList.length);
+            state.subjectList.push(...action.payload);
         },
         clearSubjectList: (state) => {
             state.subjectList.splice(0, state.subjectList.length);
