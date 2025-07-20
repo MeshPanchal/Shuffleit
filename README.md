@@ -1,20 +1,55 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Shuffle it 
+# ShuffleIt 🎲📚
 
-A productivity web application designed to help students revise their syllabus more efficiently. Built with Next.js, React, TypeScript, and Tailwind CSS, ShuffleIt allows users to enter subjects, topics, and syllabus content, then randomly selects 5 topics per subject to help them revise in a fun and unpredictable way.
-Key features include:
+**ShuffleIt** is a productivity-focused web application built to help students revise more efficiently. It allows users to add their syllabus, organise subjects and topics, and then use a smart shuffle feature to randomly select 5 topics from any subject for quick revision.
 
-Subject-wise topic organisation and management
+---
 
-Smart "Shuffle" algorithm for random topic selection
+## 🌟 Purpose
 
-Fully responsive UI with modern design
+Studying the same topics in the same order can become monotonous and inefficient. ShuffleIt introduces a fun, randomised approach to revision, making it easier for students to stay engaged, reinforce knowledge, and cover a wide range of material without overthinking what to study next.
 
-Deployed and accessible via the public domain
+---
 
-Tech Stack: Next.js, TypeScript, Tailwind CSS.
+## 🛠 Tech Stack
 
+- **Frontend Framework:** [Next.js](https://nextjs.org/)
+- **UI Library:** React, Tailwind CSS
+- **Language:** TypeScript
+- **State Management:** React Hooks
+- **Deployment:** AWS Amplify
+
+---
+
+## 🚀 Live 
+
+👉 Visit the deployed website:  
+**[https://master.d3o8pjnbgq1n5a.amplifyapp.com/](https://master.d3o8pjnbgq1n5a.amplifyapp.com/)**
+
+---
+
+## 📦 Installation Guide
+
+To run the project locally, follow these steps:
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/shuffleit.git
+cd shuffleit
+
+npm install
+# or
+yarn install
+
+npm run dev
+# or
+yarn dev
+
+```
+
+Open http://localhost:3000 in your browser.
 
 ## Getting Started
 
@@ -30,23 +65,21 @@ pnpm dev
 bun dev
 ```
 
+🤝 Contribution Guide
+We welcome contributions! Here's how you can get started:
+
+Fork the repository
+
+Create your feature branch: git checkout -b feature/your-feature-name
+
+Commit your changes: git commit -m "Add your message"
+
+Push to the branch: git push origin feature/your-feature-name
+
+Open a Pull Request
+
+Please make sure your code follows the project’s structure and formatting.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
