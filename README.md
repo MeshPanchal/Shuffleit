@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Shuffle it 
+
+A productivity web application designed to help students revise their syllabus more efficiently. Built with Next.js, React, TypeScript, and Tailwind CSS, ShuffleIt allows users to enter subjects, topics, and syllabus content, then randomly selects 5 topics per subject to help them revise in a fun and unpredictable way.
+Key features include:
+
+Subject-wise topic organisation and management
+
+Smart "Shuffle" algorithm for random topic selection
+
+Fully responsive UI with modern design
+
+Deployed and accessible via the public domain
+
+Tech Stack: Next.js, TypeScript, Tailwind CSS.
+
+
 ## Getting Started
 
 First, run the development server:
